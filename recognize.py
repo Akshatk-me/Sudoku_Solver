@@ -1,18 +1,16 @@
-from cv2.typing import MatLike
-import tensorflow as tf 
 import numpy as np 
 import keras
-import os
-import cv2 as cv 
 
-model = keras.models.load_model('digit_identifier.model')
+model = keras.models.load_model('drecv2')
 
 #img = cv.imread('puzzle_images/sample2.jpg')[:,:,0]
 
 
-def predictor(img: MatLike):
+def predictor(img):
+    print("shape of image is", img.shape)
     prediction = model.predict(img)
     print("This digit could be a", np.argmax(prediction))
+    print("Other things could be:", prediction)
 
 
 
